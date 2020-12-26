@@ -44,7 +44,7 @@ Exemplo de comando válido
 
 ```json
   {
-	  "movimentos": ["GE", "M", "M", "M", "GD", "M", "M"]
+     "movimentos": ["GE", "M", "M", "M", "GD", "M", "M"]
   }
 ```
 
