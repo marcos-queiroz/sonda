@@ -7,22 +7,24 @@ O teste foi desenvolvido a Lingugem de Programação PHP e o Framework CodeIgnit
 
 ## Executar
 
-Para rodar o projeto basta clonar o projeto localmente em uma maquina ou Docker que possua o PHP instalado.
+Para rodar o projeto basta clonar o projeto localmente, o projeto contem o Docker compose de uma imagem com PHP instalado.
+
 No diretório do projeto executar o seguinte comando:
 
-  php spark serve
+    docker-compose up -d
 
-O projeto será executado no endereço http://localhost:8080.
+
+O projeto será executado no endereço http://localhost.
 
 ## Consumo da API
 
-Para atender os requisitos do projeto o mesmo possui 3 Endpoints
+Para atender os requisitos do projeto o mesmo possui 3 Endpoints:
 
 ### init
 
 Endpoint com o objetivo de inicializar a posição da Sonda nas coordenadas X = 0 e Y = 0;
 
-http://localhost:8080/api/init
+http://localhost/api/init
 
 Retorno esperado
 
@@ -38,7 +40,7 @@ Retorno esperado
 
 Endpoint responsável por receber os comandos no formato JSON conforme exemplo do desafio.
 
-http://localhost:8080/api/receivesCommand
+http://localhost/api/receivesCommand
 
 Exemplo de comando válido
 
@@ -61,7 +63,7 @@ Retorno esperado
 
 Endpoint responsável pelo retorno da possição da sonta.
 
-http://localhost:8080/api/displaysCoordinates
+http://localhost/api/displaysCoordinates
 
 Retorno esperado
 

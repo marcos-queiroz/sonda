@@ -1,0 +1,21 @@
+CRITICAL - 2020-12-25 09:26:04 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-12-25 09:26:09 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-12-25 10:12:43 --> Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-12-25 10:12:59 --> Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-12-25 10:13:43 --> Undefined offset: 5
+#0 D:\development\credere\sonda\app\Controllers\Home.php(65): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'D:\\development\\...', 65, Array)
+#1 D:\development\credere\sonda\app\Controllers\Home.php(17): App\Controllers\Home->tabuleiro()
+#2 D:\development\credere\sonda\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Home->index()
+#3 D:\development\credere\sonda\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#4 D:\development\credere\sonda\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 D:\development\credere\sonda\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 D:\development\credere\sonda\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('D:\\development\\...')
+#7 {main}
