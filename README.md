@@ -75,4 +75,6 @@ Retorno esperado
   }
 ```
 
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?https://github.com/marcos-queiroz/sonda/blob/main/Insomnia.json)
+# Teste usando o Insomina
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Teste%20Credere&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomnia.json)
