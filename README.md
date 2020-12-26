@@ -3,7 +3,7 @@ Teste Back End - Credere
 
 ## Entrega
 
-O teste foi desenvolvido a Lingugem de Programação PHP e o Framework CodeIgniter4.
+O teste foi desenvolvido na Lingugem de Programação PHP usando o Framework CodeIgniter4.
 
 ## Executar
 
@@ -74,3 +74,5 @@ Retorno esperado
     "face": "D"
   }
 ```
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?https://github.com/marcos-queiroz/sonda/blob/main/Insomnia.json)
