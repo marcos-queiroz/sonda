@@ -1,11 +1,11 @@
 {
-	"name": "codeigniter4/appstarter",
+	"name": "credere/sonda",
 	"type": "project",
-	"description": "CodeIgniter4 starter app",
-	"homepage": "https://codeigniter.com",
+	"description": "Teste Credere",
+	"homepage": "https://sonda-credere.herokuapp.com/",
 	"license": "MIT",
 	"require": {
-		"php": ">=7.2",
+		"php": "^7.4.0",
 		"codeigniter4/framework": "^4"
 	},
 	"require-dev": {
@@ -23,10 +23,5 @@
 			"@composer dump-autoload"
 		],
 		"test": "phpunit"
-	},
-	"support": {
-		"forum": "http://forum.codeigniter.com/",
-		"source": "https://github.com/codeigniter4/CodeIgniter4",
-		"slack": "https://codeigniterchat.slack.com"
 	}
 }
