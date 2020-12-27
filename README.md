@@ -76,6 +76,26 @@ Retorno esperado:
 
 # Teste usando o Insomnia
 
-O teste foi publicado no domínio: https://sonda.marcosmqueiroz.com/ utilizando o link do Insomnia. O JSON será importado para a máquina local possibilitando os testes dos Endpoints. 
+Ao utilizar o link do Insomnia um JSON será importado para a máquina local possibilitando os testes dos Endpoints.
 
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Teste%20Credere&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomnia.json)
+Foi gerado um arquivo para teste em diferentes locais:
+
+## Local
+
+Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost/
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Local&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaLocal.json)
+
+## Online
+
+### Heroku
+
+Para publicação no Heroku foi utilizado o repositório https://github.com/marcos-queiroz/sonda-heroku contendo somente a aplicação web do teste que pode ser acessado através do endereço https://sonda-credere.herokuapp.com/
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Heroku&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaHeroku.json)
+
+### Hospedagem cPanel
+
+Para demonstração o teste também foi publicado em uma hospedagem cPanel que pode ser acessada através do endereço https://sonda.marcosmqueiroz.com/ 
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20cPanel&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomnia.json)
