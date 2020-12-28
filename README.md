@@ -13,7 +13,7 @@ No diretório do projeto deve-se executar o seguinte comando:
 
     docker-compose up -d
 
-O projeto será executado no endereço http://localhost.
+O projeto será executado no endereço http://localhost:8085/
 
 ## Consumo da API
 
@@ -23,19 +23,19 @@ Para atender os requisitos do projeto, o mesmo possui 3 Endpoints:
 
 Endpoint com o objetivo de inicializar a posição da Sonda nas coordenadas X = 0 e Y = 0.
 
-http://localhost/api/init
+http://localhost:8085/api/init
 
 ### receivesCommand
 
 Endpoint responsável por receber os comandos no formato JSON conforme exemplo do desafio.
 
-http://localhost/api/receivesCommand
+http://localhost:8085/api/receivesCommand
 
 Exemplo de comando válido:
 
 ```json
   {
-     "movimentos": ["GE", "M", "M", "M", "GD", "M", "M"]
+    "movimentos": ["GE", "M", "M", "M", "GD", "M", "M"]
   }
 ```
 
@@ -52,7 +52,7 @@ Retorno esperado:
 
 Endpoint responsável pelo retorno da posição da sonda:
 
-http://localhost/api/displaysCoordinates
+http://localhost:8085/api/displaysCoordinates
 
 Retorno esperado:
 
