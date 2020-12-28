@@ -8,7 +8,7 @@ class Sonda extends BaseController
 		$this->session = \Config\Services::session();
 	}
 
-	public function start() : void
+	public function start() : array
 	{
 		for($y = 4; $y >= 0; $y--){
 			for($x = 0; $x <= 4; $x++){
@@ -24,38 +24,47 @@ class Sonda extends BaseController
 			'coodX' => 0,
 			'coodY' => 0
 		]);
+
+		return $this->session->get();
 	}
 
 	public function command($arrayCommand) : array
 	{
-		foreach($arrayCommand as $command){
-			switch ($command) {
-				case 'GD':
-					$result = $this->turnRight();
-					break;
-				case 'GE':
-					$result = $this->turnLeft();
-					break;
-				case 'M':
-					$result = $this->move();
-					break;
+		if(is_array($arrayCommand)){
+			foreach($arrayCommand as $command){
+				switch ($command) {
+					case 'GD':
+						$result = $this->turnRight();
+						break;
+					case 'GE':
+						$result = $this->turnLeft();
+						break;
+					case 'M':
+						$result = $this->move();
+						break;
+				}
+	
+				if(!$result['status']){
+					return array(
+						'status' => FALSE,
+						'erro' => "Um movimento inválido foi detectado, infelizmente a sonda ainda não possui a habilidade de alcançar a posição (". $result['position'] .")"
+					);
+				}
 			}
-
-			if(!$result['status']){
-				return array(
-					'status' => FALSE,
-					'erro' => "Um movimento inválido foi detectado, infelizmente a sonda ainda não possui a habilidade de alcançar a posição (". $result['position'] .")"
-				);
-			}
+	
+			return array(
+				'status' => TRUE,
+				'position' => array(
+					'x' => $this->session->coodX,
+					'y' => $this->session->coodY
+				)
+			);
+		} else {
+			return array(
+				'status' => FALSE,
+				'erro' => "Não foi possível identificar um movimento válido foi detectado."
+			);
 		}
-
-		return array(
-			'status' => TRUE,
-			'position' => array(
-				'x' => $this->session->coodX,
-				'y' => $this->session->coodY
-			)
-		);
 	}
 
 	public function move() : array
@@ -71,7 +80,9 @@ class Sonda extends BaseController
 				}else{
 					return array(
 						'status' => FALSE,
-						'position' => 'x: '. ($this->session->coodX + 1) .', y: '. $this->session->coodY
+						'face' => $this->session->face,
+						'x' => $this->session->coodX + 1,
+						'y' => $this->session->coodY
 					);
 				}
 
@@ -83,7 +94,9 @@ class Sonda extends BaseController
 				}else{
 					return array(
 						'status' => FALSE,
-						'position' => 'x: '. $this->session->coodX .', y: '. ($this->session->coodY - 1)
+						'face' => $this->session->face,
+						'x' => $this->session->coodX,
+						'y' => $this->session->coodY - 1
 					);
 				}
 
@@ -95,7 +108,9 @@ class Sonda extends BaseController
 				}else{
 					return array(
 						'status' => FALSE,
-						'position' => 'x: '. ($this->session->coodX - 1) .', y: '. $this->session->coodY
+						'face' => $this->session->face,
+						'x' => $this->session->coodX - 1,
+						'y' => $this->session->coodY
 					);
 				}
 
@@ -107,17 +122,22 @@ class Sonda extends BaseController
 				}else{
 					return array(
 						'status' => FALSE,
-						'position' => 'x: '. $this->session->coodX .', y: '. ($this->session->coodY + 1)
+						'face' => $this->session->face,
+						'x' => $this->session->coodX,
+						'y' => $this->session->coodY + 1
 					);
 				}
 
 				break;
 		}
 
+		// limpa a posicao anterior
 		$this->ground[$this->session->coodX][$this->session->coodY] = 0;
 
+		// carrega o tabuleiro/terreno
 		$this->session->ground = $this->ground;
 
+		// remapeia as coordenadas no tabuleiro/terreno
 		for($y = 4; $y >= 0; $y--){
 			for($x = 0; $x <= 4; $x++){
 				if($this->session->ground[$x][$y]){
@@ -129,7 +149,9 @@ class Sonda extends BaseController
 
 		return array(
 			'status' => TRUE,
-			'position' => 'x: '.$this->session->coodX .', y: '. $this->session->coodY
+			'face' => $this->session->face,
+			'x' => $this->session->coodX,
+			'y' => $this->session->coodY
 		);
 	}
 
@@ -152,7 +174,9 @@ class Sonda extends BaseController
 
 		return array(
 			'status' => TRUE,
-			'position' => 'x: '.$this->session->coodX .', y: '. $this->session->coodY
+			'face' => $this->session->face,
+			'x' => $this->session->coodX,
+			'y' => $this->session->coodY
 		);
 	}
 
@@ -175,7 +199,9 @@ class Sonda extends BaseController
 
 		return array(
 			'status' => TRUE,
-			'position' => 'x: '.$this->session->coodX .', y: '. $this->session->coodY
+			'face' => $this->session->face,
+			'x' => $this->session->coodX,
+			'y' => $this->session->coodY
 		);
 	}
 }
