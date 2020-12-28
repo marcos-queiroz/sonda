@@ -13,4 +13,4 @@ services:
     volumes:
       - ./www/html:/var/www/html
       - ./etc/apache2/sites-available/:/etc/apache2/sites-available/
-      - ./etc/php/7.2/apache/:/etc/php/7.2/apache/
+      - ./etc/php/7.4/apache/:/etc/php/7.4/apache/
