@@ -2,7 +2,7 @@ version: "3.3"
 services:
   web_server:
     image: thecodingmachine/php:7.4-v4-apache
-    container_name: sonda-webserver
+    container_name: sonda-credere
     environment:
       PHP_EXTENSIONS: intl
     build: .

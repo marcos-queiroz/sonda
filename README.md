@@ -76,11 +76,25 @@ Retorno esperado:
 
 # Teste Unitário
 
-Para executar o teste, basta acessar o diretório do projeto com o comando:
+## Observação
+
+Em caso de a maquina não possuir o PHP instalado, o teste deve ser executado no dash do Docker.
+
+Para isso basta localizar o container com o comando:
+
+    docker container ps -a
+
+Executar o comando para acessar o terminar da imagem:
+
+    docker container exec -it sonda-credere
+
+## Executar o teste
+
+Se o terminal não abrir no diretório 'www/html/sonda/' basta executar o comando:
 
     cd www/html/sonda/
 
-E executar o comando:
+No diretório do projeto execute o comando:
 
     ./vendor/bin/phpunit
 
@@ -91,6 +105,7 @@ Se estiver rodando no OSX ou Linux, pode ser criado um link simbólico para faci
 E usar o comando para executar o teste:
 
     ./phpunit
+
 
 # Teste usando o Insomnia
 
