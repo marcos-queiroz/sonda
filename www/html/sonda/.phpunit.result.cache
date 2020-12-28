@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":112:{a:2:{s:7:"defects";a:1:{s:20:"SondaTest::testStart";i:3;}s:5:"times";a:1:{s:20:"SondaTest::testStart";d:0.296;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":352:{a:2:{s:7:"defects";a:4:{s:20:"SondaTest::testStart";i:3;s:18:"ApiTest::testStart";i:4;s:28:"ApiTest::testReceivesCommand";i:4;s:32:"ApiTest::testDisplaysCoordinates";i:4;}s:5:"times";a:4:{s:20:"SondaTest::testStart";d:0.296;s:18:"ApiTest::testStart";d:0.232;s:28:"ApiTest::testReceivesCommand";d:0.258;s:32:"ApiTest::testDisplaysCoordinates";d:0.217;}}}
