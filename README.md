@@ -9,7 +9,17 @@ O teste foi desenvolvido na Linguagem de Programação PHP usando o Framework Co
 
 Para rodar o projeto basta clonar o repositório localmente. Nele contém o Docker compose de uma imagem com PHP instalado.
 
-No diretório do projeto deve-se executar o seguinte comando:
+    git clonne https://github.com/marcos-queiroz/sonda.git
+
+Se estiver rodando no Linux, acesse o diretório com o comando:
+
+    cd sonda/www/html/sonda
+
+Depois execute o comando para dar permissão de escrita no diretório 'writable'
+
+    sudo chmod -R 775 /writable
+
+No diretório raiz do repositório deve-se executar o seguinte comando:
 
     docker-compose up -d
 
