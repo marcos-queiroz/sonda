@@ -15,9 +15,5 @@ RUN a2enmod rewrite
 
 EXPOSE 80
 
-ENV APACHE_RUN_USER=www-data \
-    APACHE_RUN_GROUP=www-data \
-    APACHE_DOCUMENT_ROOT=/var/www/html/sonda/ \
-    ABSOLUTE_APACHE_DOCUMENT_ROOT=/var/www/html/sonda\
-    PHP_INI_UPLOAD_MAX_FILESIZE=10M\
-    PHP_INI_POST_MAX_SIZE=10M\
+RUN chown www-data:www-data /var/www/html/sonda/writable
+RUN chmod 775 -R /var/www/html/sonda/writable
