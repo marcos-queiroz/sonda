@@ -1,64 +1,110 @@
-# CodeIgniter 4 Application Starter
+# SONDA
+Teste Back End - Credere
 
-## What is CodeIgniter?
+## Entrega
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure. 
-More information can be found at the [official site](http://codeigniter.com).
+O teste foi desenvolvido na Linguagem de Programação PHP usando o Framework CodeIgniter 4.
 
-This repository holds a composer-installable app starter.
-It has been built from the 
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Executar
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+Para rodar o projeto basta clonar o repositório localmente. Nele contém o Docker compose de uma imagem com PHP instalado.
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/). 
+No diretório do projeto deve-se executar o seguinte comando:
 
-## Installation & updates
+    docker-compose up -d
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+O projeto será executado no endereço http://localhost:8085/
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Consumo da API
 
-## Setup
+Para atender os requisitos do projeto, o mesmo possui 3 Endpoints:
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### init
 
-## Important Change with index.php
+Endpoint com o objetivo de inicializar a posição da Sonda nas coordenadas X = 0 e Y = 0.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+http://localhost:8085/api/init
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### receivesCommand
 
-**Please** read the user guide for a better explanation of how CI4 works!
-The user guide updating and deployment is a bit awkward at the moment, but we are working on it!
+Endpoint responsável por receber os comandos no formato JSON conforme exemplo do desafio.
 
-## Repository Management
+http://localhost:8085/api/receivesCommand
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Exemplo de comando válido:
 
-This repository is a "distribution" one, built by our release preparation script. 
-Problems with it can be raised on our forum, or as issues in the main repository.
+```json
+  {
+    "movimentos": ["GE", "M", "M", "M", "GD", "M", "M"]
+  }
+```
 
-## Server Requirements
+Retorno esperado:
 
-PHP version 7.2 or higher is required, with the following extensions installed: 
+```json
+  {
+    "x": 2,
+    "y": 3
+  }
+```
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+### displaysCoordinates
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+Endpoint responsável pelo retorno da posição da sonda:
 
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+http://localhost:8085/api/displaysCoordinates
+
+Retorno esperado:
+
+```json
+  {
+    "x": 2,
+    "y": 3,
+    "face": "D"
+  }
+```
+
+# Teste Unitário
+
+Para executar o teste, basta acessar o diretório do projeto em 'www/html/sonda' e digitar o comando:
+
+    ./vendor/bin/phpunit
+
+Se estiver rodando no OSX ou Linux, pode ser criado um link simbólico para facilitar a execução do teste, para isso basta usar o comando:
+
+    ln -s ./vendor/bin/phpunit ./phpunit
+
+E usar o comando para executar o teste:
+
+    ./phpunit
+
+# Teste usando o Insomnia
+
+Ao utilizar o link do Insomnia um JSON será importado para a máquina local, possibilitando os testes dos Endpoints.
+
+Foi gerado um arquivo para teste em diferentes locais:
+
+## Local
+
+Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost:8085/. Optei por alterar a porta padrão 80 para 8085, evitando assim, possíveis conflitos.
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Local&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaLocal.json)
+
+## Online
+
+### Heroku
+
+Para publicação no Heroku foi utilizado o repositório https://github.com/marcos-queiroz/sonda-heroku contendo somente a aplicação web do teste que pode ser acessado através do endereço https://sonda-credere.herokuapp.com/
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Heroku&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaHeroku.json)
+
+### Hospedagem cPanel
+
+Para demonstração o teste também foi publicado em uma hospedagem cPanel que pode ser acessada através do endereço https://sonda.marcosmqueiroz.com/ 
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20cPanel&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomnia.json)
+
+
+# Por fim é isso... 
+
+:bowtie:
