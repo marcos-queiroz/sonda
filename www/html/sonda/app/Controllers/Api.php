@@ -11,7 +11,7 @@ class Api extends Sonda
     $this->start();
 
     if(isset($this->session->face)){
-      return $this->displaysCoordinates();
+      return $this->respondCreated();
     } else {
       return $this->respond(['error' => 'Não foi possível iniciar o terreno para a sonda.']);
     }
