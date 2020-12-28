@@ -13,7 +13,7 @@ No diretório do projeto deve-se executar o seguinte comando:
 
     docker-compose up -d
 
-O projeto será executado no endereço http://localhost:8085/
+O projeto será executado no endereço http://localhost:8080/
 
 ## Consumo da API
 
@@ -23,13 +23,13 @@ Para atender os requisitos do projeto, o mesmo possui 3 Endpoints:
 
 Endpoint com o objetivo de inicializar a posição da Sonda nas coordenadas X = 0 e Y = 0.
 
-http://localhost:8085/api/init
+http://localhost:8080/api/init
 
 ### receivesCommand
 
 Endpoint responsável por receber os comandos no formato JSON conforme exemplo do desafio.
 
-http://localhost:8085/api/receivesCommand
+http://localhost:8080/api/receivesCommand
 
 Exemplo de comando válido:
 
@@ -52,7 +52,7 @@ Retorno esperado:
 
 Endpoint responsável pelo retorno da posição da sonda:
 
-http://localhost:8085/api/displaysCoordinates
+http://localhost:8080/api/displaysCoordinates
 
 Retorno esperado:
 
@@ -86,7 +86,7 @@ Foi gerado um arquivo para teste em diferentes locais:
 
 ## Local
 
-Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost:8085/. Optei por alterar a porta padrão 80 para 8085, evitando assim, possíveis conflitos.
+Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost:8080/. Optei por alterar a porta padrão 80 para 8080, evitando assim, possíveis conflitos.
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Local&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaLocal.json)
 

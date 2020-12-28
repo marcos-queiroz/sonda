@@ -9,7 +9,7 @@ services:
       dockerfile: php.dockerfile
     restart: always
     ports:
-      - 8085:80
+      - 8080:80
     volumes:
       - ./www/html:/var/www/html
       - ./etc/apache2/sites-available/:/etc/apache2/sites-available/
