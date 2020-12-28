@@ -25,16 +25,6 @@ Endpoint com o objetivo de inicializar a posição da Sonda nas coordenadas X = 
 
 http://localhost/api/init
 
-Retorno esperado:
-
-```json
-  {
-    "x": 0,
-    "y": 0,
-    "face": "D"
-  }
-```
-
 ### receivesCommand
 
 Endpoint responsável por receber os comandos no formato JSON conforme exemplo do desafio.
@@ -74,6 +64,20 @@ Retorno esperado:
   }
 ```
 
+# Teste Unitário
+
+Para executar o teste, basta acessar o diretório do projeto em 'www/html/sonda' e digitar o comando:
+
+    ./vendor/bin/phpunit
+
+Se estiver rodando no OSX ou Linux, pode ser criado um link simbólico para facilitar a execução do teste, para isso basta usar o comando:
+
+    ln -s ./vendor/bin/phpunit ./phpunit
+
+E usar o comando para executar o teste:
+
+    ./phpunit
+
 # Teste usando o Insomnia
 
 Ao utilizar o link do Insomnia um JSON será importado para a máquina local possibilitando os testes dos Endpoints.
@@ -82,7 +86,7 @@ Foi gerado um arquivo para teste em diferentes locais:
 
 ## Local
 
-Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost/
+Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost:8085/, optei por alterar a porta padrão 80 para 8085, assim evito possíveis conflitos.
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Local&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaLocal.json)
 
