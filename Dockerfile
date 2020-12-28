@@ -1,6 +1,6 @@
 ARG PHP_EXTENSIONS='intl'
 
-FROM thecodingmachine/php:7.2-v3-apache
+FROM thecodingmachine/php:7.4-v4-apache
 
 RUN a2enmod rewrite
 ENV APACHE_RUN_USER=www-data \
