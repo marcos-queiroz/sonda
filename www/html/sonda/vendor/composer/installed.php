@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'e6172cf26faf7d0bfe2228ba44917516b06eceb0',
+    'reference' => '1b466accbc3f13400c0b35465a936e84260d1849',
     'name' => 'credere/sonda',
   ),
   'versions' => 
@@ -27,7 +27,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'e6172cf26faf7d0bfe2228ba44917516b06eceb0',
+      'reference' => '1b466accbc3f13400c0b35465a936e84260d1849',
     ),
     'doctrine/instantiator' => 
     array (

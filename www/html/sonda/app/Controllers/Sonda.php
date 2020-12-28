@@ -1,7 +1,12 @@
 <?php namespace App\Controllers;
 class Sonda extends BaseController
 {
-	private $ground = array();
+	protected $ground = array();
+	protected $session;
+
+	function __construct() {
+		$this->session = \Config\Services::session();
+	}
 
 	public function start() : void
 	{
