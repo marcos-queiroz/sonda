@@ -84,7 +84,7 @@ Para isso basta localizar o container com o comando:
 
 Executar o comando para acessar o terminar da imagem:
 
-    docker container exec -it sonda-credere
+    docker container exec -it sonda-credere /bin/sh/
 
 
     cd sonda/
