@@ -80,13 +80,13 @@ E usar o comando para executar o teste:
 
 # Teste usando o Insomnia
 
-Ao utilizar o link do Insomnia um JSON será importado para a máquina local possibilitando os testes dos Endpoints.
+Ao utilizar o link do Insomnia um JSON será importado para a máquina local, possibilitando os testes dos Endpoints.
 
 Foi gerado um arquivo para teste em diferentes locais:
 
 ## Local
 
-Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost:8085/, optei por alterar a porta padrão 80 para 8085, assim evito possíveis conflitos.
+Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost:8085/. Optei por alterar a porta padrão 80 para 8085, evitando assim, possíveis conflitos.
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Local&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaLocal.json)
 
@@ -105,6 +105,6 @@ Para demonstração o teste também foi publicado em uma hospedagem cPanel que p
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20cPanel&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomnia.json)
 
 
-# Por fim é isso 
+# Por fim é isso... 
 
 :bowtie:
