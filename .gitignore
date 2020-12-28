@@ -79,9 +79,6 @@ tests/coverage*
 
 writable/debugbar/
 
-# Don't save phpunit under version control.
-phpunit
-
 #-------------------------
 # IDE / Development Files
 #-------------------------

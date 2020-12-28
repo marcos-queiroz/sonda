@@ -11,18 +11,19 @@ Para rodar o projeto basta clonar o repositório localmente. Nele contém o Dock
 
     git clone https://github.com/marcos-queiroz/sonda.git
 
-Se estiver rodando no Linux execute o comando para dar permissão de escrita no diretório 'writable'
-
-    sudo chgrp -R www-data www/html/sonda
-
-    sudo chmod -R 775 www/html/sonda/writable
-
-
 No diretório raiz do repositório deve-se executar o seguinte comando:
 
     docker-compose up -d
 
 O projeto será executado no endereço http://localhost:8080/
+
+### Observação
+
+Se estiver rodando no Linux execute o comando para dar permissão de escrita no diretório 'writable'
+
+    sudo chgrp -R www-data www/html/sonda
+
+    sudo chmod -R 775 www/html/sonda/writable
 
 ## Consumo da API
 
@@ -75,7 +76,11 @@ Retorno esperado:
 
 # Teste Unitário
 
-Para executar o teste, basta acessar o diretório do projeto em 'www/html/sonda' e digitar o comando:
+Para executar o teste, basta acessar o diretório do projeto com o comando:
+
+    cd www/html/sonda/
+
+E executar o comando:
 
     ./vendor/bin/phpunit
 
