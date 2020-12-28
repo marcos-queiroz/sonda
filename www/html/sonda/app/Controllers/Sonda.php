@@ -1,11 +1,9 @@
 <?php namespace App\Controllers;
-
 class Sonda extends BaseController
 {
-
 	private $ground = array();
 
-	public function start()
+	public function start() : void
 	{
 		for($y = 4; $y >= 0; $y--){
 			for($x = 0; $x <= 4; $x++){
@@ -21,10 +19,9 @@ class Sonda extends BaseController
 			'coodX' => 0,
 			'coodY' => 0
 		]);
-
 	}
 
-	public function command($arrayCommand)
+	public function command($arrayCommand) : array
 	{
 		foreach($arrayCommand as $command){
 			switch ($command) {
@@ -56,7 +53,7 @@ class Sonda extends BaseController
 		);
 	}
 
-	public function move()
+	public function move() : array
 	{
 
 		$this->ground = $this->session->ground;
@@ -131,7 +128,7 @@ class Sonda extends BaseController
 		);
 	}
 
-	public function turnLeft()
+	public function turnLeft() : array
 	{
 		switch ($this->session->face) {
 			case 'D':
@@ -154,7 +151,7 @@ class Sonda extends BaseController
 		);
 	}
 
-	public function turnRight()
+	public function turnRight() : array
 	{
 		switch ($this->session->face) {
 			case 'D':
