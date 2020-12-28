@@ -1,16 +1,14 @@
-version: "3"
+version: "3.3"
 services:
-  # container do servidor web
-  apache:
-    image: php:7.4-apache
-    container_name: apache
-    build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
+  web_server:
+    image: thecodingmachine/php:7.2-v3-apache
+    container_name: sonda-webserver
+    environment:
+      PHP_EXTENSIONS: intl
+    build: .
+    volumes:
+      - ./www/html/:/var/www/html/
+      - ./etc/apache2/sites-available/:/etc/apache2/sites-available/
     restart: always
     ports:
       - 8080:80
-    volumes:
-      - ./www/html:/var/www/html
-      - ./etc/apache2/sites-available/:/etc/apache2/sites-available/
-      - ./etc/php/7.4/apache/:/etc/php/7.4/apache/
