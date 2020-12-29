@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '1b466accbc3f13400c0b35465a936e84260d1849',
+    'reference' => 'f2892a1008a433a67495c3a4b4d9db3ff0d86299',
     'name' => 'credere/sonda',
   ),
   'versions' => 
@@ -50,7 +50,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '1b466accbc3f13400c0b35465a936e84260d1849',
+      'reference' => 'f2892a1008a433a67495c3a4b4d9db3ff0d86299',
     ),
     'doctrine/instantiator' => 
     array (

@@ -1,31 +1,76 @@
-# SONDA
-Teste Back End - Credere
+<h1 align="center">
+  🔭 SONDA
+</h1>
 
-## Entrega
 
-O teste foi desenvolvido na Linguagem de Programação PHP usando o Framework CodeIgniter 4.
 
-## Executar
+## 📌 Projeto
+
+Esse projeto é um sistema desenvolvido como teste técnico para o processo seletivo de Desenvolvedor Backend Credere.
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [PHP 7.4](https://php.net/)
+- [Composer](https://getcomposer.org)
+- [Codeigniter 4](https://codeigniter.com/)
+- [Docker](https://docker.com)
+### 📄 Descrição
+
+Uma sonda exploradora da NASA pousou em marte. O pouso se deu em uma área retangular, na qual a sonda pode navegar usando uma interface web. A posição da sonda é representada pelo seu eixo x e y, e a direção que ele está apontado pela letra inicial, sendo as direções válidas:
+
+- `E` - Esquerda
+- `D` - Direita
+- `C` - Cima
+- `B` - Baixo
+
+A sonda aceita três comandos:
+
+- `GE` - girar 90 graus à esquerda
+- `GD` - girar 90 graus à direta
+- `M` - movimentar. Para cada comando `M` a sonda se move uma posição na direção à qual sua face está apontada.
+
+A sonda inicia no quadrante (x = 0, y = 0), o que se traduz como a casa mais inferior da esquerda; também inicia com a face para a direita.
+
+A intenção é controlar a sonda enviando a direção e quantidade de movimentos que ela deve executar. A resposta deve ser sua coordenada final caso o ponto se encontre dentro do quadrante, caso o ponto não possa ser alcançado a resposta deve ser um erro indicando que a posição é inválida. Para a execução do teste as dimensões de 5x5 pode ser usado.
+
+
+## ⚙️ Executar o Projeto
 
 Para rodar o projeto basta clonar o repositório localmente. Nele contém o Docker compose de uma imagem com PHP instalado.
 
+```sh
     git clone https://github.com/marcos-queiroz/sonda.git
+```
 
 No diretório raiz do repositório deve-se executar o seguinte comando:
 
+```sh
     docker-compose up -d
+```
 
 O projeto será executado no endereço http://localhost:8080/
 
-### Observação
+### ❕ Observação
 
-Se estiver rodando no Linux execute o comando para dar permissão de escrita no diretório 'writable'
-
+Se estiver rodando no Linux execute o comando para dar permissão de escrita no diretório 'writable'.
+```sh
     sudo chgrp -R www-data www/html/sonda
-
+```
+```sh
     sudo chmod -R 775 www/html/sonda/writable
+```
 
-## Consumo da API
+O projeto foi versionado com todas as dependências carregadas pelo Composer, com o objetivo de facilitar a execução do teste sem a necessidade de instalar todos os requisitos da aplicação.
+
+Se a maquina possuir o PHP 7.4 e Composer instalados, basta acessar o diretório 'www/html/sonda' e executar o composer com o comando:
+
+```sh
+    composer install
+```
+
+## 💻 Consumo da API
 
 Para atender os requisitos do projeto, o mesmo possui 3 Endpoints:
 
@@ -74,41 +119,60 @@ Retorno esperado:
   }
 ```
 
-# Teste Unitário
+# 📑 Teste Unitário
 
-Executar o teste no terminal do Docker.
+## Executar o teste no terminal do Docker.
 
 Para isso basta localizar o container com o comando:
 
+```sh
     docker container ps -a
+```
 
 Executar o comando para acessar o terminar da imagem:
 
+```sh
     docker container exec -it sonda-credere /bin/sh/
-
-
+```
+```sh
     cd sonda/
+```
 
 No diretório do projeto execute o comando:
 
+```sh
     ./vendor/bin/phpunit
+```
 
+Exemplo de retorno. 
 
 ![Execução no Windows](https://github.com/marcos-queiroz/sonda/blob/main/run-docker-windows.jpeg?raw=true)
 
-# Teste usando o Insomnia
+## Executar o teste em maquina com PHP instalado
 
-Ao utilizar o link do Insomnia um JSON será importado para a máquina local, possibilitando os testes dos Endpoints.
+Basta acessar o diretório da aplicação em 'www/html/sonda/' e executar o comando:
 
-Foi gerado um arquivo para teste em diferentes locais:
+```sh
+    ./vendor/bin/phpunit
+```
 
-## Local
+Exemplo de retorno
+
+![Execução no terminal](https://github.com/marcos-queiroz/sonda/blob/main/run-terminal.jpeg?raw=true)
+
+# 👾 Teste usando o Insomnia
+
+No Windows ou MAC ao utilizar o link do Insomnia um JSON será importado para a máquina local, possibilitando os testes dos Endpoints.
+
+Foi gerado um arquivo para teste em diferentes ambientes:
+
+## 💻 Local
 
 Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http://localhost:8080/. Optei por alterar a porta padrão 80 para 8080, evitando assim, possíveis conflitos.
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Local&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaLocal.json)
 
-## Online
+## ☁️ Online
 
 ### Heroku
 
