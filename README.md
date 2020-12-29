@@ -63,7 +63,7 @@ O projeto será executado no endereço http://localhost:8080/
 
 ### ❕ Observação
 
-Se estiver rodando no Linux execute o comando para dar permissão de escrita no diretório 'writable'.
+Se estiver rodando no Linux, execute os seguintes comandos para dar permissão de escrita no diretório 'writable':
 ```sh
     sudo chgrp -R www-data www/html/sonda
 ```
@@ -73,7 +73,7 @@ Se estiver rodando no Linux execute o comando para dar permissão de escrita no 
 
 O projeto foi versionado com todas as dependências carregadas pelo Composer, com o objetivo de facilitar a execução do teste sem a necessidade de instalar todos os requisitos da aplicação.
 
-Se a maquina possuir o PHP 7.4 e Composer instalados, basta acessar o diretório 'www/html/sonda' e executar o composer com o comando:
+Se a máquina possuir o PHP 7.4 e Composer instalados, basta acessar o diretório 'www/html/sonda' e executar o composer com o comando:
 
 ```sh
     composer install
@@ -131,7 +131,7 @@ Retorno esperado:
 
 # 📑 Teste Unitário
 
-## Executar o teste no terminal do Docker.
+## Executar o teste no terminal do Docker
 
 Para isso basta localizar o container com o comando:
 
@@ -139,7 +139,7 @@ Para isso basta localizar o container com o comando:
     docker container ps -a
 ```
 
-Executar o comando para acessar o terminar da imagem:
+Executar o comando para acessar o terminal da imagem:
 
 ```sh
     docker container exec -it sonda-credere /bin/sh/
@@ -148,7 +148,7 @@ Executar o comando para acessar o terminar da imagem:
     cd sonda/
 ```
 
-No diretório do projeto execute o comando:
+No diretório do projeto executar o comando:
 
 ```sh
     ./vendor/bin/phpunit
@@ -158,7 +158,7 @@ Exemplo de retorno.
 
 ![Execução no Windows](https://github.com/marcos-queiroz/sonda/blob/main/run-docker-windows.jpeg?raw=true)
 
-## Executar o teste em maquina com PHP instalado
+## Executar o teste em máquina com PHP instalado
 
 Basta acessar o diretório da aplicação em 'www/html/sonda/' e executar o comando:
 
@@ -166,7 +166,7 @@ Basta acessar o diretório da aplicação em 'www/html/sonda/' e executar o coma
     ./vendor/bin/phpunit
 ```
 
-Exemplo de retorno
+Exemplo de retorno:
 
 ![Execução no terminal](https://github.com/marcos-queiroz/sonda/blob/main/run-terminal.jpg?raw=true)
 
@@ -175,11 +175,11 @@ Exemplo de retorno
 
 ## Heroku
 
-No Heroku com uma conta administrativa clique em "New", escolher um nome para o App conforme a imagem.
+No Heroku com uma conta administrativa clique em "New" e escolha um nome para o App conforme a imagem.
 
 ![Criação de um novo APP no Heroku](https://github.com/marcos-queiroz/sonda/blob/main/deploy/01_create_new_app.jpg?raw=true)
 
-Na maquina basta ter o Heroku CLI instalado, acesse o diretório 'www/html/sonda' e execute os comandos:
+Na máquina basta ter o Heroku CLI instalado. Acesse o diretório 'www/html/sonda' e execute os comandos:
 
 ```sh
     heroku login
@@ -191,8 +191,7 @@ Na maquina basta ter o Heroku CLI instalado, acesse o diretório 'www/html/sonda
     heroku git:remote -a nome-app
 ```
 
-Deploy da Aplicação
-Envie todo o código para o repositório e realize o deploy.
+Inicialize o repositório:
 
 ```sh
     git add .
@@ -200,11 +199,12 @@ Envie todo o código para o repositório e realize o deploy.
 ```sh
     git commit -am "Publicação do Novo APP"
 ```
+Envie todo o código para o Heroku com o comando:
 ```sh
     git push heroku master
 ```
 
-Pronto a aplicação está publicada no Heroku, nesse exemplo no domínio: https://sonda-marte.herokuapp.com/
+A aplicação está publicada no Heroku no domínio: https://sonda-marte.herokuapp.com/
 
 # 👾 Teste usando o Insomnia
 
