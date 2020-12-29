@@ -24,6 +24,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Composer](https://getcomposer.org)
 - [Codeigniter 4](https://codeigniter.com/)
 - [Docker](https://docker.com)
+- [Heroku](https://www.heroku.com/)
 ### 📄 Descrição
 
 Uma sonda exploradora da NASA pousou em marte. O pouso se deu em uma área retangular, na qual a sonda pode navegar usando uma interface web. A posição da sonda é representada pelo seu eixo x e y, e a direção que ele está apontado pela letra inicial, sendo as direções válidas:
