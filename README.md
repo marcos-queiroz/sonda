@@ -168,6 +168,42 @@ Exemplo de retorno
 
 ![Execução no terminal](https://github.com/marcos-queiroz/sonda/blob/main/run-terminal.jpg?raw=true)
 
+
+# Deploy
+
+## Heroku
+
+No Heroku com uma conta administrativa clique em "New", escolher um nome para o App conforme a imagem.
+
+![Criação de um novo APP no Heroku](https://github.com/marcos-queiroz/sonda/deploy/blob/main/01_create_new_app.jpg?raw=true)
+
+Na maquina basta ter o Heroku CLI instalado, acesse o diretório 'www/html/sonda' e execute os comandos:
+
+```sh
+    heroku login
+```
+```sh
+    git init
+```
+```sh
+    heroku git:remote -a nome-app
+```
+
+Deploy da Aplicação
+Envie todo o código para o repositório e realize o deploy.
+
+```sh
+    git add .
+```
+```sh
+    git commit -am "Publicação do Novo APP"
+```
+```sh
+    git push heroku master
+```
+
+Pronto a aplicação está publicada no Heroku, nesse exemplo no domínio: https://sonda-marte.herokuapp.com/
+
 # 👾 Teste usando o Insomnia
 
 No Windows ou MAC ao utilizar o link do Insomnia um JSON será importado para a máquina local, possibilitando os testes dos Endpoints.
@@ -184,7 +220,7 @@ Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http:/
 
 ### Heroku
 
-Para publicação no Heroku foi utilizado o repositório https://github.com/marcos-queiroz/sonda-heroku contendo somente a aplicação web do teste que pode ser acessado através do endereço https://sonda-credere.herokuapp.com/
+Para demonstração do funcionamento do teste, a aplicação foi publicada no endereço https://sonda-marte.herokuapp.com/
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Heroku&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaHeroku.json)
 
