@@ -77,6 +77,28 @@ class Sonda extends BaseController
 		}
 	}
 
+	private function moveX() : void
+	{
+		if($this->session->control > 0){
+			$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo X";
+		} else {
+			$this->session->sequenceControl = ", se moveu 1 casa no eixo X";
+		}
+		
+		$this->session->control += 1;
+	}
+
+	private function moveY() : void
+	{
+		if($this->session->control > 0){
+			$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo Y";
+		} else {
+			$this->session->sequenceControl = ", se moveu 1 casa no eixo Y";
+		}
+		
+		$this->session->control += 1;
+	}
+
 	public function move() : array
 	{
 		$this->session->movement = 'M';
@@ -88,13 +110,7 @@ class Sonda extends BaseController
 				if(isset($this->ground[$this->session->coordinateX + 1][$this->session->coordinateY])){					
 					$this->ground[$this->session->coordinateX + 1][$this->session->coordinateY] = 1;
 										
-					if($this->session->control > 0){
-						$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo X";
-					} else {
-						$this->session->sequenceControl = ", se moveu 1 casa no eixo X";
-					}
-					
-					$this->session->control += 1;
+					$this->moveX();
 					
 				}else{
 					return array(
@@ -111,13 +127,7 @@ class Sonda extends BaseController
 				if(isset($this->ground[$this->session->coordinateX][$this->session->coordinateY - 1])){
 					$this->ground[$this->session->coordinateX][$this->session->coordinateY - 1] = 1;
 
-					if($this->session->control > 0){
-						$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo Y";
-					} else {
-						$this->session->sequenceControl = ", se moveu 1 casa no eixo Y";
-					}
-					
-					$this->session->control += 1;
+					$this->moveY();
 				}else{
 					return array(
 						'status' => FALSE,
@@ -133,13 +143,7 @@ class Sonda extends BaseController
 				if(isset($this->ground[$this->session->coordinateX - 1][$this->session->coordinateY])){
 					$this->ground[$this->session->coordinateX - 1][$this->session->coordinateY] = 1;
 
-					if($this->session->control > 0){
-						$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo X";
-					} else {
-						$this->session->sequenceControl = ", se moveu 1 casa no eixo X";
-					}
-					
-					$this->session->control += 1;
+					$this->moveX();
 				}else{
 					return array(
 						'status' => FALSE,
@@ -155,13 +159,7 @@ class Sonda extends BaseController
 				if(isset($this->ground[$this->session->coordinateX][$this->session->coordinateY + 1])){
 					$this->ground[$this->session->coordinateX][$this->session->coordinateY + 1] = 1;
 
-					if($this->session->control > 0){
-						$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo Y";
-					} else {
-						$this->session->sequenceControl = ", se moveu 1 casa no eixo Y";
-					}
-					
-					$this->session->control += 1;
+					$this->moveXY;
 				}else{
 					return array(
 						'status' => FALSE,
