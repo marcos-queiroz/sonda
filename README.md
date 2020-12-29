@@ -2,7 +2,14 @@
   🔭 SONDA
 </h1>
 
-
+<p align="center">
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#%EF%B8%8F-executar-o-projeto">Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-consumo-da-api">Consumo da API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-teste-unitário">Testes</a>
+</p>
 
 ## 📌 Projeto
 
@@ -158,7 +165,7 @@ Basta acessar o diretório da aplicação em 'www/html/sonda/' e executar o coma
 
 Exemplo de retorno
 
-![Execução no terminal](https://github.com/marcos-queiroz/sonda/blob/main/run-terminal.jpeg?raw=true)
+![Execução no terminal](https://github.com/marcos-queiroz/sonda/blob/main/run-terminal.jpg?raw=true)
 
 # 👾 Teste usando o Insomnia
 
