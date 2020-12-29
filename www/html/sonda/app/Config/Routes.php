@@ -33,6 +33,14 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 /**
+ * Routes API
+ */
+
+$routes->get('api/init', 'Api::init');
+$routes->post('api/receivesCommand', 'Api::receivesCommand');
+$routes->get('api/displaysCoordinates', 'Api::displaysCoordinates');
+
+/**
  * --------------------------------------------------------------------
  * Additional Routing
  * --------------------------------------------------------------------

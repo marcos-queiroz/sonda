@@ -8,7 +8,8 @@
   <a href="#-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#%EF%B8%8F-executar-o-projeto">Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-consumo-da-api">Consumo da API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-teste-unitário">Testes</a>
+  <a href="#-teste-unitário">Testes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#deploy">Deploy</a>
 </p>
 
 ## 📌 Projeto
@@ -23,6 +24,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Composer](https://getcomposer.org)
 - [Codeigniter 4](https://codeigniter.com/)
 - [Docker](https://docker.com)
+- [Heroku](https://www.heroku.com/)
 ### 📄 Descrição
 
 Uma sonda exploradora da NASA pousou em marte. O pouso se deu em uma área retangular, na qual a sonda pode navegar usando uma interface web. A posição da sonda é representada pelo seu eixo x e y, e a direção que ele está apontado pela letra inicial, sendo as direções válidas:
@@ -61,7 +63,7 @@ O projeto será executado no endereço http://localhost:8080/
 
 ### ❕ Observação
 
-Se estiver rodando no Linux execute o comando para dar permissão de escrita no diretório 'writable'.
+Se estiver rodando no Linux, execute os seguintes comandos para dar permissão de escrita no diretório 'writable':
 ```sh
     sudo chgrp -R www-data www/html/sonda
 ```
@@ -71,7 +73,7 @@ Se estiver rodando no Linux execute o comando para dar permissão de escrita no 
 
 O projeto foi versionado com todas as dependências carregadas pelo Composer, com o objetivo de facilitar a execução do teste sem a necessidade de instalar todos os requisitos da aplicação.
 
-Se a maquina possuir o PHP 7.4 e Composer instalados, basta acessar o diretório 'www/html/sonda' e executar o composer com o comando:
+Se a máquina possuir o PHP 7.4 e Composer instalados, basta acessar o diretório 'www/html/sonda' e executar o composer com o comando:
 
 ```sh
     composer install
@@ -129,7 +131,7 @@ Retorno esperado:
 
 # 📑 Teste Unitário
 
-## Executar o teste no terminal do Docker.
+## Executar o teste no terminal do Docker
 
 Para isso basta localizar o container com o comando:
 
@@ -137,7 +139,7 @@ Para isso basta localizar o container com o comando:
     docker container ps -a
 ```
 
-Executar o comando para acessar o terminar da imagem:
+Executar o comando para acessar o terminal da imagem:
 
 ```sh
     docker container exec -it sonda-credere /bin/sh/
@@ -146,7 +148,7 @@ Executar o comando para acessar o terminar da imagem:
     cd sonda/
 ```
 
-No diretório do projeto execute o comando:
+No diretório do projeto executar o comando:
 
 ```sh
     ./vendor/bin/phpunit
@@ -156,7 +158,7 @@ Exemplo de retorno.
 
 ![Execução no Windows](https://github.com/marcos-queiroz/sonda/blob/main/run-docker-windows.jpeg?raw=true)
 
-## Executar o teste em maquina com PHP instalado
+## Executar o teste em máquina com PHP instalado
 
 Basta acessar o diretório da aplicação em 'www/html/sonda/' e executar o comando:
 
@@ -164,9 +166,45 @@ Basta acessar o diretório da aplicação em 'www/html/sonda/' e executar o coma
     ./vendor/bin/phpunit
 ```
 
-Exemplo de retorno
+Exemplo de retorno:
 
 ![Execução no terminal](https://github.com/marcos-queiroz/sonda/blob/main/run-terminal.jpg?raw=true)
+
+
+# Deploy
+
+## Heroku
+
+No Heroku com uma conta administrativa clique em "New" e escolha um nome para o App conforme a imagem.
+
+![Criação de um novo APP no Heroku](https://github.com/marcos-queiroz/sonda/blob/main/deploy/01_create_new_app.jpg?raw=true)
+
+Na máquina basta ter o Heroku CLI instalado. Acesse o diretório 'www/html/sonda' e execute os comandos:
+
+```sh
+    heroku login
+```
+```sh
+    git init
+```
+```sh
+    heroku git:remote -a nome-app
+```
+
+Inicialize o repositório:
+
+```sh
+    git add .
+```
+```sh
+    git commit -am "Publicação do Novo APP"
+```
+Envie todo o código para o Heroku com o comando:
+```sh
+    git push heroku master
+```
+
+A aplicação está publicada no Heroku no domínio: https://sonda-marte.herokuapp.com/
 
 # 👾 Teste usando o Insomnia
 
@@ -184,7 +222,7 @@ Utilizando a imagem Docker local o teste pode ser acessado pelo endereço http:/
 
 ### Heroku
 
-Para publicação no Heroku foi utilizado o repositório https://github.com/marcos-queiroz/sonda-heroku contendo somente a aplicação web do teste que pode ser acessado através do endereço https://sonda-credere.herokuapp.com/
+Para demonstração do funcionamento do teste, a aplicação foi publicada no endereço https://sonda-marte.herokuapp.com/
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Credere%20Heroku&uri=https%3A%2F%2Fgithub.com%2Fmarcos-queiroz%2Fsonda%2Fblob%2Fmain%2FInsomniaHeroku.json)
 
