@@ -188,7 +188,7 @@ Na máquina basta ter o Heroku CLI instalado. Acesse o diretório 'www/html/sond
     git init
 ```
 ```sh
-    heroku git:remote -a nome-app
+    heroku git:remote -a sonda-marte
 ```
 
 Inicialize o repositório:
