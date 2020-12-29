@@ -72,7 +72,7 @@ class Sonda extends BaseController
 		} else {
 			return array(
 				'status' => FALSE,
-				'erro' => "Não foi possível identificar um movimento válido foi detectado."
+				'erro' => "Não foi possível identificar um movimento válido."
 			);
 		}
 	}
