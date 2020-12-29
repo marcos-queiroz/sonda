@@ -33,8 +33,8 @@ class Api extends Sonda
   public function displaysCoordinates()
   {
     $respond = array(
-      'x' => $this->session->coodX,
-      'y' => $this->session->coodY,
+      'x' => $this->session->coordinateX,
+      'y' => $this->session->coordinateY,
       'face' => $this->session->face
     );
 

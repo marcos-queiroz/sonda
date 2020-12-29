@@ -21,8 +21,12 @@ class Sonda extends BaseController
 		$this->session->set([
 			'ground' => $this->ground,
 			'face' => "D",
-			'coodX' => 0,
-			'coodY' => 0
+			'coordinateX' => 0,
+			'coordinateY' => 0,
+			'sequence' => 'A sonda',
+			'sequenceControl' => '',
+			'movement' => '',
+			'control' => 0
 		]);
 
 		return $this->session->get();
@@ -31,17 +35,22 @@ class Sonda extends BaseController
 	public function command($arrayCommand) : array
 	{
 		if(is_array($arrayCommand)){
-			foreach($arrayCommand as $command){
-				switch ($command) {
+			for($x = 0; $x < count($arrayCommand); $x++){
+				
+				switch ($arrayCommand[$x]) {
 					case 'GD':
 						$result = $this->turnRight();
 						break;
 					case 'GE':
 						$result = $this->turnLeft();
 						break;
-					case 'M':
+					case 'M':						
 						$result = $this->move();
 						break;
+				}
+
+				if($x == (count($arrayCommand) - 1) && $arrayCommand[$x] == 'M'){
+					$this->session->sequence .= $this->session->sequenceControl; // captura a ultima sequencia de M
 				}
 	
 				if(!$result['status']){
@@ -55,8 +64,9 @@ class Sonda extends BaseController
 			return array(
 				'status' => TRUE,
 				'position' => array(
-					'x' => $this->session->coodX,
-					'y' => $this->session->coodY
+					'x' => $this->session->coordinateX,
+					'y' => $this->session->coordinateY,
+					'sequence' => $this->session->sequence
 				)
 			);
 		} else {
@@ -69,62 +79,95 @@ class Sonda extends BaseController
 
 	public function move() : array
 	{
-
+		$this->session->movement = 'M';
 		$this->ground = $this->session->ground;
 		
 		switch ($this->session->face) {
 			case 'D':
 
-				if(isset($this->ground[$this->session->coodX + 1][$this->session->coodY])){					
-					$this->ground[$this->session->coodX + 1][$this->session->coodY] = 1;
+				if(isset($this->ground[$this->session->coordinateX + 1][$this->session->coordinateY])){					
+					$this->ground[$this->session->coordinateX + 1][$this->session->coordinateY] = 1;
+										
+					if($this->session->control > 0){
+						$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo X";
+					} else {
+						$this->session->sequenceControl = ", se moveu 1 casa no eixo X";
+					}
+					
+					$this->session->control += 1;
+					
 				}else{
 					return array(
 						'status' => FALSE,
 						'face' => $this->session->face,
-						'x' => $this->session->coodX + 1,
-						'y' => $this->session->coodY
+						'x' => $this->session->coordinateX + 1,
+						'y' => $this->session->coordinateY
 					);
 				}
 
 				break;
 			case 'B':
 
-				if(isset($this->ground[$this->session->coodX][$this->session->coodY - 1])){
-					$this->ground[$this->session->coodX][$this->session->coodY - 1] = 1;
+				if(isset($this->ground[$this->session->coordinateX][$this->session->coordinateY - 1])){
+					$this->ground[$this->session->coordinateX][$this->session->coordinateY - 1] = 1;
+
+					if($this->session->control > 0){
+						$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo Y";
+					} else {
+						$this->session->sequenceControl = ", se moveu 1 casa no eixo Y";
+					}
+					
+					$this->session->control += 1;
 				}else{
 					return array(
 						'status' => FALSE,
 						'face' => $this->session->face,
-						'x' => $this->session->coodX,
-						'y' => $this->session->coodY - 1
+						'x' => $this->session->coordinateX,
+						'y' => $this->session->coordinateY - 1
 					);
 				}
 
 				break;
 			case 'E':
 
-				if(isset($this->ground[$this->session->coodX - 1][$this->session->coodY])){
-					$this->ground[$this->session->coodX - 1][$this->session->coodY] = 1;
+				if(isset($this->ground[$this->session->coordinateX - 1][$this->session->coordinateY])){
+					$this->ground[$this->session->coordinateX - 1][$this->session->coordinateY] = 1;
+
+					if($this->session->control > 0){
+						$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo X";
+					} else {
+						$this->session->sequenceControl = ", se moveu 1 casa no eixo X";
+					}
+					
+					$this->session->control += 1;
 				}else{
 					return array(
 						'status' => FALSE,
 						'face' => $this->session->face,
-						'x' => $this->session->coodX - 1,
-						'y' => $this->session->coodY
+						'x' => $this->session->coordinateX - 1,
+						'y' => $this->session->coordinateY
 					);
 				}
 
 				break;
 			case 'C':
 
-				if(isset($this->ground[$this->session->coodX][$this->session->coodY + 1])){
-					$this->ground[$this->session->coodX][$this->session->coodY + 1] = 1;
+				if(isset($this->ground[$this->session->coordinateX][$this->session->coordinateY + 1])){
+					$this->ground[$this->session->coordinateX][$this->session->coordinateY + 1] = 1;
+
+					if($this->session->control > 0){
+						$this->session->sequenceControl = ", se moveu ".($this->session->control + 1)." casas no eixo Y";
+					} else {
+						$this->session->sequenceControl = ", se moveu 1 casa no eixo Y";
+					}
+					
+					$this->session->control += 1;
 				}else{
 					return array(
 						'status' => FALSE,
 						'face' => $this->session->face,
-						'x' => $this->session->coodX,
-						'y' => $this->session->coodY + 1
+						'x' => $this->session->coordinateX,
+						'y' => $this->session->coordinateY + 1
 					);
 				}
 
@@ -132,7 +175,7 @@ class Sonda extends BaseController
 		}
 
 		// limpa a posicao anterior
-		$this->ground[$this->session->coodX][$this->session->coodY] = 0;
+		$this->ground[$this->session->coordinateX][$this->session->coordinateY] = 0;
 
 		// carrega o tabuleiro/terreno
 		$this->session->ground = $this->ground;
@@ -141,8 +184,8 @@ class Sonda extends BaseController
 		for($y = 4; $y >= 0; $y--){
 			for($x = 0; $x <= 4; $x++){
 				if($this->session->ground[$x][$y]){
-					$this->session->coodX = $x;
-					$this->session->coodY = $y;
+					$this->session->coordinateX = $x;
+					$this->session->coordinateY = $y;
 				}
 			}
 		}
@@ -150,13 +193,17 @@ class Sonda extends BaseController
 		return array(
 			'status' => TRUE,
 			'face' => $this->session->face,
-			'x' => $this->session->coodX,
-			'y' => $this->session->coodY
+			'x' => $this->session->coordinateX,
+			'y' => $this->session->coordinateY
 		);
 	}
 
 	public function turnLeft() : array
 	{
+		$this->session->movement = 'GE';
+		$this->session->control = 0;
+		$this->session->sequence .= $this->session->sequenceControl;
+
 		switch ($this->session->face) {
 			case 'D':
 				$this->session->face = 'C';
@@ -172,16 +219,22 @@ class Sonda extends BaseController
 				break;
 		}
 
+		$this->session->sequence = $this->session->sequence.", girou para esquerda";
+
 		return array(
 			'status' => TRUE,
 			'face' => $this->session->face,
-			'x' => $this->session->coodX,
-			'y' => $this->session->coodY
+			'x' => $this->session->coordinateX,
+			'y' => $this->session->coordinateY
 		);
 	}
 
 	public function turnRight() : array
 	{
+		$this->session->movement = 'GD';
+		$this->session->control = 0;
+		$this->session->sequence .= $this->session->sequenceControl;
+
 		switch ($this->session->face) {
 			case 'D':
 				$this->session->face = 'B';
@@ -197,11 +250,13 @@ class Sonda extends BaseController
 				break;
 		}
 
+		$this->session->sequence = $this->session->sequence.", girou para direita";
+
 		return array(
 			'status' => TRUE,
 			'face' => $this->session->face,
-			'x' => $this->session->coodX,
-			'y' => $this->session->coodY
+			'x' => $this->session->coordinateX,
+			'y' => $this->session->coordinateY
 		);
 	}
 }

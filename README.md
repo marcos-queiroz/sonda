@@ -106,7 +106,8 @@ Retorno esperado:
 ```json
   {
     "x": 2,
-    "y": 3
+    "y": 3,
+    "sequence": "A sonda, girou para esquerda, se moveu 3 casas no eixo Y, girou para direita, se moveu 2 casas no eixo X"
   }
 ```
 

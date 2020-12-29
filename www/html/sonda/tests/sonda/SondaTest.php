@@ -19,8 +19,8 @@ class SondaTest extends CIUnitTestCase
         $result = $this->sonda->start();
 
         $this->assertEquals('D', $result['face']);
-        $this->assertEquals(0, $result['coodX']);
-        $this->assertEquals(0, $result['coodY']);
+        $this->assertEquals(0, $result['coordinateX']);
+        $this->assertEquals(0, $result['coordinateY']);
     }
 
     public function testCommand()
