@@ -175,7 +175,7 @@ Exemplo de retorno
 
 No Heroku com uma conta administrativa clique em "New", escolher um nome para o App conforme a imagem.
 
-![Criação de um novo APP no Heroku](https://github.com/marcos-queiroz/sonda/deploy/blob/main/01_create_new_app.jpg?raw=true)
+![Criação de um novo APP no Heroku](https://github.com/marcos-queiroz/sonda/blob/main/deploy/01_create_new_app.jpg?raw=true)
 
 Na maquina basta ter o Heroku CLI instalado, acesse o diretório 'www/html/sonda' e execute os comandos:
 
