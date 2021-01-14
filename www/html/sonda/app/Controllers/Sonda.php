@@ -159,7 +159,7 @@ class Sonda extends BaseController
 				if(isset($this->ground[$this->session->coordinateX][$this->session->coordinateY + 1])){
 					$this->ground[$this->session->coordinateX][$this->session->coordinateY + 1] = 1;
 
-					$this->moveXY;
+					$this->moveY();
 				}else{
 					return array(
 						'status' => FALSE,
