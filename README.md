@@ -14,7 +14,7 @@
 
 ## 📌 Projeto
 
-Esse projeto é um sistema desenvolvido como teste técnico para o processo seletivo de Desenvolvedor Backend Credere.
+Esse projeto é um sistema desenvolvido como teste técnico.
 
 ## 🚀 Tecnologias
 
